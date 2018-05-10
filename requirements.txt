@@ -1,0 +1,6 @@
+djangorestframework
+markdown
+django-filter
+coreapi
+django-crispy-forms
+django-guardian
