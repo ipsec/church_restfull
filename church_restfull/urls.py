@@ -1,30 +1,30 @@
-"""church_restfull URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from courses import views
+from core.views import UserViewSet
+from courses.views import StudentClassViewSet, CourseViewSet, StudentViewSet, TeacherViewSet
+from news.views import NewsViewSet
 
 router = routers.DefaultRouter()
-router.register(r'classes', views.ClassViewSet)
+# Core APP
+router.register(r'users', UserViewSet)
+
+# News APP
+router.register(r'news', NewsViewSet)
+
+# Courses APP
+router.register(r'course', CourseViewSet)
+router.register(r'teacher', TeacherViewSet)
+router.register(r'student', StudentViewSet)
+router.register(r'student_class', StudentClassViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
     path('admin/', admin.site.urls),
-    url(r'^api-auth/', include('rest_framework.urls'))
+    # path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    # path('users/', UserList.as_view()),
+    # path('users/<pk>/', UserDetails.as_view()),
+    # path('groups/', GroupList.as_view()),
 ]

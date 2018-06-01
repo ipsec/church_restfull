@@ -24,7 +24,7 @@ class TeacherClass(models.Model):
 
 
 class StudentClass(models.Model):
-    #owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    # owner = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, null=True)
@@ -40,4 +40,3 @@ class StudentClass(models.Model):
 
     def __str__(self):
         return self.title
-

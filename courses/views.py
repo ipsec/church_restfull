@@ -1,14 +1,29 @@
-# Create your views here.
 from rest_framework import viewsets
 
-from courses.models import StudentClass
-from courses.serializers import ClassSerializer
+from courses.models import StudentClass, Course, Student, Teacher
+from courses.serializers import StudentClassSerializer, CourseSerializer, TeacherSerializer, StudentSerializer
 
 
-class ClassViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows class to be viewed or edited.
-    """
-    queryset = StudentClass.objects.all().order_by('title')
-    serializer_class = ClassSerializer
+class CourseViewSet(viewsets.ModelViewSet):
+    queryset = Course.objects.all()
+    serializer_class = CourseSerializer
+    http_method_names = ['get']
+
+
+class TeacherViewSet(viewsets.ModelViewSet):
+    queryset = Teacher.objects.all()
+    serializer_class = TeacherSerializer
+    http_method_names = ['get']
+
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer
+    http_method_names = ['get']
+
+
+class StudentClassViewSet(viewsets.ModelViewSet):
+    queryset = StudentClass.objects.all()
+    serializer_class = StudentClassSerializer
+    http_method_names = ['get']
 
