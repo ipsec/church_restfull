@@ -154,3 +154,7 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+/church_restfull/settings_s3.py
+/**/migrations/
+/static/
+/.idea/

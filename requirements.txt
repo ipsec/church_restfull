@@ -6,3 +6,6 @@ coreapi
 django-crispy-forms
 django-guardian
 django-oauth-toolkit
+django-storages
+boto3
+psycopg2
