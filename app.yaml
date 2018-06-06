@@ -4,7 +4,7 @@ env: flex
 entrypoint: gunicorn -b :$PORT church_restfull.wsgi
 
 beta_settings:
-    cloud_sql_instances: church-restfull-psql-db
+    cloud_sql_instances: church-restfull:us-central1:church-restfull-psql-db
 
 runtime_config:
   python_version: 3

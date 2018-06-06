@@ -106,7 +106,6 @@ REST_FRAMEWORK = {
 THIRD_PARTY_APPS = [
     'crispy_forms',
     'rest_framework',
-    'rest_framework_swagger',
     #    'oauth2_provider',
 ]
 
@@ -133,3 +132,5 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
+
+SECURE_SSL_REDIRECT = True
